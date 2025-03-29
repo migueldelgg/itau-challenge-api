@@ -1,4 +1,4 @@
-package delgadomiguel.StatifyAPI.exception;
+package delgadomiguel.StatifyAPI.domain.exceptions;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

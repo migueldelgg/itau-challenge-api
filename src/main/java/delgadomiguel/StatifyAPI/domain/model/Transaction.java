@@ -1,6 +1,6 @@
-package delgadomiguel.StatifyAPI.entity;
+package delgadomiguel.StatifyAPI.domain.model;
 
-import delgadomiguel.StatifyAPI.dto.TransactionReq;
+import delgadomiguel.StatifyAPI.application.dto.TransactionRequest;
 
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
@@ -21,7 +21,7 @@ public class Transaction {
         this.valor = valor;
     }
 
-    public static Transaction from(TransactionReq transactionReq) {
+    public static Transaction from(TransactionRequest transactionReq) {
         return new Transaction(transactionReq.valor(), transactionReq.dataHora());
     }
 
