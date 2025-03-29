@@ -1,11 +1,8 @@
-package delgadomiguel.StatifyAPI.dto;
-
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
+package delgadomiguel.StatifyAPI.application.dto;
 
 import java.math.BigDecimal;
 
-public record TransactionReq
+public record TransactionRequest
         (
                 BigDecimal valor, String dataHora
         ) {

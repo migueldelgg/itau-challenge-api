@@ -1,9 +1,9 @@
 package delgadomiguel.StatifyAPI.application.usecase;
 
-import delgadomiguel.StatifyAPI.dto.TransactionReq;
+import delgadomiguel.StatifyAPI.application.dto.TransactionRequest;
 
-public interface ReceiveTransaction {
+public interface ReceiveTransactionUseCase {
 
-    public void execute (TransactionReq req);
+    public void execute (TransactionRequest req);
 
 }
