@@ -4,7 +4,6 @@ import delgadomiguel.StatifyAPI.application.usecase.ReceiveTransactionUseCase;
 import delgadomiguel.StatifyAPI.application.dto.TransactionRequest;
 import delgadomiguel.StatifyAPI.domain.model.Transaction;
 import delgadomiguel.StatifyAPI.infrastructure.repository.TransactionRepository;
-import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +18,7 @@ public class ReceiveTransactionService implements ReceiveTransactionUseCase {
     }
 
     @Override
-    public void execute(@Valid TransactionRequest request) {
+    public void execute(TransactionRequest request) {
         Transaction transaction = Transaction.from(request);
         repository.save(transaction);
     }

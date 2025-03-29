@@ -32,4 +32,9 @@ public class InMemoryTransactionRepository implements TransactionRepository{
                 .collect(Collectors.toList());
     }
 
+    @Override
+    public void cleanTransactions() {
+        transactions.clear();
+    }
+
 }

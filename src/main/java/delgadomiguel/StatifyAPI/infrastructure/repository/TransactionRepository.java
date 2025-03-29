@@ -11,4 +11,6 @@ public interface TransactionRepository {
     public void save(Transaction transaction);
 
     public List<Transaction> findBySeconds (Long seconds);
+
+    public void cleanTransactions();
 }

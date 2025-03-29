@@ -5,7 +5,5 @@ import org.springframework.stereotype.Service;
 
 @Service
 public interface FindLastTransactionsUseCase {
-
     public Statistics execute (Long seconds);
-
 }

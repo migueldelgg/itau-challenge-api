@@ -10,8 +10,12 @@ import org.springframework.stereotype.Service;
 public class FindLastTransactionsService implements FindLastTransactionsUseCase {
 
     @Autowired
-    private TransactionRepository repository;
+    private final TransactionRepository repository;
 
+    public FindLastTransactionsService(TransactionRepository repository) {
+        this.repository = repository;
+    }
+    
     @Override
     public Statistics execute(Long seconds) {
         var filterTransactions = repository.findBySeconds(seconds);
