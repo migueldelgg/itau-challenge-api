@@ -1,4 +1,4 @@
-package delgadomiguel.StatifyAPI.model;
+package delgadomiguel.StatifyAPI.entities;
 
 import delgadomiguel.StatifyAPI.dto.TransactionReq;
 
