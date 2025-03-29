@@ -1,4 +1,4 @@
-package delgadomiguel.StatifyAPI.entities;
+package delgadomiguel.StatifyAPI.entity;
 
 import delgadomiguel.StatifyAPI.dto.TransactionReq;
 
@@ -13,6 +13,7 @@ public class Transaction {
     private OffsetDateTime dataHora;
 
     public Transaction(BigDecimal valor, String dataHora) {
+        validateOffsetDateTimeValue(dataHora);
         OffsetDateTime parsedDateTime = parseDateTime(dataHora);
         validateValue(valor);
         validateDateTime(parsedDateTime);
@@ -26,7 +27,7 @@ public class Transaction {
 
     private void validateValue(BigDecimal input) {
         if (input == null || input.compareTo(BigDecimal.ZERO) < 0) {
-            throw new IllegalArgumentException("O valor da transação não pode ser negativo ou nulo.");
+            throw new IllegalArgumentException();
         }
     }
 
@@ -34,13 +35,33 @@ public class Transaction {
         try {
             return OffsetDateTime.parse(input, DateTimeFormatter.ISO_OFFSET_DATE_TIME);
         } catch (DateTimeParseException e) {
-            throw new IllegalArgumentException("Formato de data inválido.");
+            throw new IllegalArgumentException();
         }
     }
 
     private void validateDateTime(OffsetDateTime dateTime) {
-        if (dateTime.isAfter(OffsetDateTime.now())) {
-            throw new IllegalArgumentException("A data informada não pode ser do futuro.");
+        OffsetDateTime minDate = OffsetDateTime.parse("1998-01-01T00:00:00Z");
+
+        if (dateTime.isAfter(OffsetDateTime.now()) || dateTime.isBefore(minDate)) {
+            throw new IllegalArgumentException();
         }
+    }
+
+    private void validateOffsetDateTimeValue(String dataHora) {
+        if (dataHora == null) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "Transaction{" +
+                "valor=" + valor +
+                ", dataHora=" + dataHora +
+                '}';
+    }
+
+    public BigDecimal getValor() {
+        return valor;
     }
 }

@@ -1,5 +1,6 @@
-package delgadomiguel.StatifyAPI.useCase;
+package delgadomiguel.StatifyAPI.application.service;
 
+import delgadomiguel.StatifyAPI.application.usecase.ReceiveTransaction;
 import delgadomiguel.StatifyAPI.dto.TransactionReq;
 import delgadomiguel.StatifyAPI.entity.Transaction;
 import delgadomiguel.StatifyAPI.repository.TransactionRepository;
@@ -8,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ReceiveTransactionImpl implements ReceiveTransaction{
+public class ReceiveTransactionImpl implements ReceiveTransaction {
 
     @Autowired
     private final TransactionRepository repository;

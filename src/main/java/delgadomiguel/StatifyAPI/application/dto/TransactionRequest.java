@@ -7,6 +7,6 @@ import java.math.BigDecimal;
 
 public record TransactionReq
         (
-                @NotNull BigDecimal valor, @NotBlank String dataHora
+                BigDecimal valor, String dataHora
         ) {
 }

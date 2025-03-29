@@ -1,4 +1,4 @@
-package delgadomiguel.StatifyAPI.useCase;
+package delgadomiguel.StatifyAPI.application.usecase;
 
 import delgadomiguel.StatifyAPI.dto.TransactionReq;
 
