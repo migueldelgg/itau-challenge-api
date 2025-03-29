@@ -1,4 +1,4 @@
-package delgadomiguel.StatifyAPI.repository;
+package delgadomiguel.StatifyAPI.infrastructure.repository;
 
 import delgadomiguel.StatifyAPI.domain.model.Transaction;
 import org.springframework.stereotype.Repository;
