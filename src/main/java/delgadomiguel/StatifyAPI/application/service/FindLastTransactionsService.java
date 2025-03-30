@@ -3,22 +3,22 @@ package delgadomiguel.StatifyAPI.application.service;
 import delgadomiguel.StatifyAPI.domain.model.Statistics;
 import delgadomiguel.StatifyAPI.infrastructure.repository.TransactionRepository;
 import delgadomiguel.StatifyAPI.application.usecase.FindLastTransactionsUseCase;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 @Service
+@RequiredArgsConstructor
+@Slf4j
 public class FindLastTransactionsService implements FindLastTransactionsUseCase {
 
-    @Autowired
     private final TransactionRepository repository;
 
-    public FindLastTransactionsService(TransactionRepository repository) {
-        this.repository = repository;
-    }
-    
     @Override
     public Statistics execute(Long seconds) {
+        log.info("Request arrived at the FindLastTransactionsService");
         var filterTransactions = repository.findBySeconds(seconds);
+        log.info("Request was processed, result: \n{}\n END", filterTransactions.toString());
         return Statistics.execute(filterTransactions);
     }
 }

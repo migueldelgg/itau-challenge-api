@@ -16,7 +16,7 @@ public class Statistics {
     private BigDecimal min;
     private BigDecimal max;
 
-    public Statistics(BigDecimal avg, Integer count, BigDecimal max, BigDecimal min, BigDecimal sum) {
+    public Statistics(Integer count, BigDecimal sum, BigDecimal avg, BigDecimal min, BigDecimal max) {
         this.avg = avg;
         this.count = count;
         this.max = max;
@@ -26,7 +26,7 @@ public class Statistics {
 
     public static Statistics execute(List<Transaction> transactions) {
         if (transactions == null || transactions.isEmpty()) {
-            return new Statistics(BigDecimal.ZERO, 0, BigDecimal.ZERO, BigDecimal.ZERO, BigDecimal.ZERO);
+            return new Statistics(0, BigDecimal.ZERO, BigDecimal.ZERO, BigDecimal.ZERO, BigDecimal.ZERO);
         }
 
         DoubleSummaryStatistics stats = transactions.stream()
@@ -40,7 +40,7 @@ public class Statistics {
         BigDecimal avg = BigDecimal.valueOf(stats.getAverage()).max(BigDecimal.ZERO).setScale(2, RoundingMode.HALF_UP);
         int count = transactions.size();
 
-        return new Statistics(avg, count, max, min, sum);
+        return new Statistics(count, sum, avg, min, max);
     }
 
     @Override
