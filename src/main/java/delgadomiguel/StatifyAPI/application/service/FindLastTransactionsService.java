@@ -19,6 +19,6 @@ public class FindLastTransactionsService implements FindLastTransactionsUseCase 
         log.info("Request arrived at the FindLastTransactionsService");
         var filterTransactions = repository.findBySeconds(seconds);
         log.info("Request was processed, result: \n{}\n END", filterTransactions.toString());
-        return Statistics.execute(filterTransactions);
+        return Statistics.generateStats(filterTransactions);
     }
 }

@@ -1,6 +1,6 @@
 package delgadomiguel.StatifyAPI.infrastructure.repository;
 
-import delgadomiguel.StatifyAPI.domain.model.Transaction;
+import delgadomiguel.StatifyAPI.domain.model.transaction.Transaction;
 import org.springframework.stereotype.Repository;
 
 import java.time.OffsetDateTime;

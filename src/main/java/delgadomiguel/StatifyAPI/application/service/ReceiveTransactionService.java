@@ -2,14 +2,14 @@ package delgadomiguel.StatifyAPI.application.service;
 
 import delgadomiguel.StatifyAPI.application.usecase.ReceiveTransactionUseCase;
 import delgadomiguel.StatifyAPI.application.dto.TransactionRequest;
-import delgadomiguel.StatifyAPI.domain.model.Transaction;
+import delgadomiguel.StatifyAPI.domain.model.transaction.Transaction;
 import delgadomiguel.StatifyAPI.infrastructure.repository.TransactionRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-@RequiredArgsConstructor
 @Service
+@RequiredArgsConstructor
 @Slf4j
 public class ReceiveTransactionService implements ReceiveTransactionUseCase {
 

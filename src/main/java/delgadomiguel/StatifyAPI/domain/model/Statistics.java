@@ -1,5 +1,6 @@
 package delgadomiguel.StatifyAPI.domain.model;
 
+import delgadomiguel.StatifyAPI.domain.model.transaction.Transaction;
 import lombok.Getter;
 
 import java.math.BigDecimal;
@@ -24,7 +25,7 @@ public class Statistics {
         this.sum = sum;
     }
 
-    public static Statistics execute(List<Transaction> transactions) {
+    public static Statistics generateStats(List<Transaction> transactions) {
         if (transactions == null || transactions.isEmpty()) {
             return new Statistics(0, BigDecimal.ZERO, BigDecimal.ZERO, BigDecimal.ZERO, BigDecimal.ZERO);
         }
